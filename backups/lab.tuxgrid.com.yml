@@ -1,0 +1,38 @@
+- Name: lab.tuxgrid.com.
+  ResourceRecords:
+  - Value: ns-1819.awsdns-35.co.uk.
+  - Value: ns-714.awsdns-25.net.
+  - Value: ns-87.awsdns-10.com.
+  - Value: ns-1063.awsdns-04.org.
+  TTL: 172800
+  Type: NS
+- Name: lab.tuxgrid.com.
+  ResourceRecords:
+  - Value: ns-1819.awsdns-35.co.uk. awsdns-hostmaster.amazon.com. 1 7200 900 1209600
+      86400
+  TTL: 900
+  Type: SOA
+- Name: brightsolid-dev-test.lab.tuxgrid.com.
+  ResourceRecords:
+  - Value: ns-500.awsdns-62.com
+  - Value: ns-677.awsdns-20.net
+  - Value: ns-1322.awsdns-37.org
+  - Value: ns-1946.awsdns-51.co.uk
+  TTL: 60
+  Type: NS
+- Name: brightsolid-ops-sandbox.lab.tuxgrid.com.
+  ResourceRecords:
+  - Value: ns-1447.awsdns-52.org
+  - Value: ns-134.awsdns-16.com
+  - Value: ns-605.awsdns-11.net
+  - Value: ns-1631.awsdns-11.co.uk
+  TTL: 60
+  Type: NS
+- Name: brightsolid-production.lab.tuxgrid.com.
+  ResourceRecords:
+  - Value: ns-548.awsdns-04.net
+  - Value: ns-41.awsdns-05.com
+  - Value: ns-1362.awsdns-42.org
+  - Value: ns-1906.awsdns-46.co.uk
+  TTL: 60
+  Type: NS
