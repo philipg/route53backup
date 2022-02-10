@@ -81,7 +81,7 @@ def main(commit=False):
 
         upsert_changes = diff(current_zone_records, backup_zone_records, "UPSERT")
         if len(upsert_changes) > 0:
-            print(batches(upsert_changes))
+            pprint(batches(upsert_changes))
             if commit:
                 for batch in batches(upsert_changes):
                     print("performing commit for batch")
@@ -92,7 +92,7 @@ def main(commit=False):
                     pprint(r53change)
         delete_changes = diff(backup_zone_records, current_zone_records, "DELETE")
         if len(delete_changes) > 0:
-            print(batches(delete_changes))
+            pprint(batches(delete_changes))
             if commit:
                 for batch in batches(delete_changes):
                     print("performing commit for batch")
