@@ -7,13 +7,9 @@ from botocore.exceptions import ClientError
 import route53_utils
 from pprint import pprint
 from argparse import ArgumentParser
-import logging
 
 route53 = boto3.client("route53")
 MAX_API_BATCH_SIZE = 500
-
-logger = logging.getLogger()
-logger.setLevel(logging.INFO)
 
 def restore_hosted_zone(zone_to_restore):
     if zone_to_restore["Config"]["PrivateZone"]:
@@ -85,26 +81,26 @@ def main(commit=False):
 
         upsert_changes = diff(current_zone_records, backup_zone_records, "UPSERT")
         if len(upsert_changes) > 0:
-            logger.info(batches(upsert_changes))
+            print(batches(upsert_changes))
             if commit:
                 for batch in batches(upsert_changes):
-                    logger.info("performing commit for batch")
-                    logger.info(batch)
+                    print("performing commit for batch")
+                    print(batch)
                     r53change = route53.change_resource_record_sets(
                         HostedZoneId=zone["Id"], ChangeBatch={"Changes": batch}
                     )
-                    logger.info(pprint(r53change))
+                    pprint(r53change)
         delete_changes = diff(backup_zone_records, current_zone_records, "DELETE")
         if len(delete_changes) > 0:
-            logger.info(batches(delete_changes))
+            print(batches(delete_changes))
             if commit:
                 for batch in batches(delete_changes):
-                    logger.info("performing commit for batch")
-                    logger.info(batch)
+                    print("performing commit for batch")
+                    print(batch)
                     r53change = route53.change_resource_record_sets(
                         HostedZoneId=zone["Id"], ChangeBatch={"Changes": batch}
                     )
-                    logger.info(pprint(r53change))
+                    pprint(r53change)
     backup_health_checks = yaml.safe_load(open("backups/healthchecks.yml", "r"))
     current_health_checks = route53_utils.get_route53_health_checks()
 
