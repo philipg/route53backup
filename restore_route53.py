@@ -85,7 +85,7 @@ def main(commit=False):
             if commit:
                 for batch in batches(upsert_changes):
                     print("performing commit for batch")
-                    print(batch)
+                    pprint(batch)
                     r53change = route53.change_resource_record_sets(
                         HostedZoneId=zone["Id"], ChangeBatch={"Changes": batch}
                     )
@@ -96,7 +96,7 @@ def main(commit=False):
             if commit:
                 for batch in batches(delete_changes):
                     print("performing commit for batch")
-                    print(batch)
+                    pprint(batch)
                     r53change = route53.change_resource_record_sets(
                         HostedZoneId=zone["Id"], ChangeBatch={"Changes": batch}
                     )
