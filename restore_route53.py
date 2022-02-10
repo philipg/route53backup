@@ -80,7 +80,7 @@ def main(commit=False):
     zones = yaml.safe_load(open("backups/zones.yml", "r"))
     for zone_obj in zones:
         zone = create_zone_if_not_exist(zone_obj)
-        backup_zone_records = yaml.safe_load(open(f"{zone_obj['Name']}yml", "r"))
+        backup_zone_records = yaml.safe_load(open(f"backups/{zone_obj['Name']}yml", "r"))
         current_zone_records = route53_utils.get_route53_zone_records(zone["Id"])
 
         upsert_changes = diff(current_zone_records, backup_zone_records, "UPSERT")
