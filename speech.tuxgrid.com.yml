@@ -1,0 +1,30 @@
+- Name: speech.tuxgrid.com.
+  ResourceRecords:
+  - Value: ns-415.awsdns-51.com.
+  - Value: ns-1180.awsdns-19.org.
+  - Value: ns-937.awsdns-53.net.
+  - Value: ns-1979.awsdns-55.co.uk.
+  TTL: 172800
+  Type: NS
+- Name: speech.tuxgrid.com.
+  ResourceRecords:
+  - Value: ns-415.awsdns-51.com. awsdns-hostmaster.amazon.com. 1 7200 900 1209600
+      86400
+  TTL: 900
+  Type: SOA
+- Name: brightsolid-ops-sandbox.speech.tuxgrid.com.
+  ResourceRecords:
+  - Value: ns-1447.awsdns-52.org
+  - Value: ns-134.awsdns-16.com
+  - Value: ns-605.awsdns-11.net
+  - Value: ns-1631.awsdns-11.co.uk
+  TTL: 60
+  Type: NS
+- Name: brightsolid-ops-sandbox3.speech.tuxgrid.com.
+  ResourceRecords:
+  - Value: ns-1447.awsdns-52.org
+  - Value: ns-134.awsdns-16.com
+  - Value: ns-605.awsdns-11.net
+  - Value: ns-1631.awsdns-11.co.uk
+  TTL: 60
+  Type: NS
