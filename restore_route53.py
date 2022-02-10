@@ -77,7 +77,7 @@ def batches(changes):
 
 
 def main(commit=False):
-    zones = yaml.safe_load(open("zones.yml", "r"))
+    zones = yaml.safe_load(open("backups/zones.yml", "r"))
     for zone_obj in zones:
         zone = create_zone_if_not_exist(zone_obj)
         backup_zone_records = yaml.safe_load(open(f"{zone_obj['Name']}yml", "r"))
@@ -105,7 +105,7 @@ def main(commit=False):
                         HostedZoneId=zone["Id"], ChangeBatch={"Changes": batch}
                     )
                     logger.info(pprint(r53change))
-    backup_health_checks = yaml.safe_load(open("healthchecks.yml", "r"))
+    backup_health_checks = yaml.safe_load(open("backups/healthchecks.yml", "r"))
     current_health_checks = route53_utils.get_route53_health_checks()
 
     # Compare the health checks by their IDs, actual objects are a little different

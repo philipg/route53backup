@@ -31,12 +31,12 @@ def get_route53_hosted_zones(next_dns_name=None, next_hosted_zone_id=None):
 def main():
     hosted_zones = get_route53_hosted_zones()
 
-    with open(r"zones.yml", "w") as file:
+    with open(r"backups/zones.yml", "w") as file:
         documents = yaml.dump(hosted_zones, file)
 
     for zone in hosted_zones:
         zone_records = route53_utils.get_route53_zone_records(zone["Id"])
-        with open(f"{zone['Name']}yml", "w") as file:
+        with open(f"backups/{zone['Name']}yml", "w") as file:
             yaml.dump(zone_records, file)
 
     health_checks = route53_utils.get_route53_health_checks()
